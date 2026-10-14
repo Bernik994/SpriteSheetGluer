@@ -43,8 +43,14 @@ jobs:
         Copy-Item -Path "./publish-bez-bibliotek/*" -Destination "./artifacts/$appName" -Recurse
         Compress-Archive -Path "./artifacts/$appName/*" -DestinationPath "./artifacts/$appName.zip"
 
-    - name: Upload Artifacts
+    - name: Upload Self-Contained Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Paczki-Aplikacji
-        path: ./artifacts/*.zip
+        name: SpriteSheetGluer-win-x64-samowystarczalny
+        path: ./artifacts/SpriteSheetGluer-win-x64-samowystarczalny.zip
+
+    - name: Upload Framework-Dependent Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: SpriteSheetGluer-win-x64-bez-bibliotek-wymaga-dotnet
+        path: ./artifacts/SpriteSheetGluer-win-x64-bez-bibliotek-wymaga-dotnet.zip
