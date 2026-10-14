@@ -1,11 +1,11 @@
-Prosty i lekko prymitywny program do tworzenia Sprite Sheet'ów (łączenie klatek animacji 2D w jeden uporządkowany obraz PNG).
+ Prosty i lekko prymitywny program do tworzenia Sprite Sheet'ów (łączenie klatek animacji 2D w jeden uporządkowany obraz PNG).
 <br>Stworzony na potrzeby własne jako narzędzie do tworzenia gier, ale jak komuś się przyda to może śmiało używać (choć są pewnie lepsze alternatywy).
 
 * Pomysł i jak to ma działać - 100% mój
 * Wykonanie interfejsu - 100% moje
 * Kod - pół mój, pół wygenerowany przez ChataGPT
 
-*Do odplania programu potrzebny Visual Studio (najlepiej 2026 i nie Code) z obsługą platformy .NET*
+*Do odpalenia programu potrzebny jest Visual Studio (najlepiej 2026 i nie Code) z obsługą platformy .NET*
 
 Na screenie niżej jak to wygląda i opis jak działa.
 <br>Pliki wsadzane do folderów zalecam by miały same liczby w kolejności (od najmniejszej do największej) w jakiej chcecie by były umieszczone (np. 1, 2, 5, 8, 10 itp.).
