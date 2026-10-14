@@ -1,19 +1,19 @@
-Prosty i lekko prymitywny program do tworzenia Sprite Sheet'ów (łączenie klatek animacji 2D w jeden uporządkowany obraz PNG)
-Stworzony na potrzeby własne jako narzędzie do tworzenia gier, ale jak komuś się przyda to niech śmiało używa (choć są pewnie lepsze alternatywy).
+Prosty i lekko prymitywny program do tworzenia Sprite Sheet'ów (łączenie klatek animacji 2D w jeden uporządkowany obraz PNG).
+<br>Stworzony na potrzeby własne jako narzędzie do tworzenia gier, ale jak komuś się przyda to niech śmiało używa (choć są pewnie lepsze alternatywy).
 
 * Pomysł i jak to ma działać - 100% mój
 * Wykonanie interfejsu - 100% moje
 * Kod - pół mój, pół wygenerowany przez ChataGPT
 
 Na screenie niżej jak to wygląda i opis jak działa.
-Pliki wsadzane do folderów zalecam by miały same liczby w kolejności w jakiej chcecie by były umieszczane (np. 1, 2, 5, 8, 10 itp.)
+<br>Pliki wsadzane do folderów zalecam by miały same liczby w kolejności (od najmniejszej do największej) w jakiej chcecie by były umieszczone (np. 1, 2, 5, 8, 10 itp.).
 
 ***
 <img width="1224" height="371" alt="image" src="https://github.com/user-attachments/assets/65ff0928-73c4-443c-b4bb-7356b38a29e8" />
 &nbsp;
 
 
-Struktura układania przy przykładowym ustawieniu: Liczba sprite'ów w poziomie = 2; Liczba kolumn = 3:
+Struktura układania przy przykładowym ustawieniu: Liczba sprite'ów w poziomie = 2; Liczba kolumn = 3;
 | | Wiersz1| Wiersz2 |
 | :--- | :---: | ---: |
 | Kolumna1| Obraz2 | Obraz5 |
