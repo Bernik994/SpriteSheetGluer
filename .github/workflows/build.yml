@@ -1,0 +1,50 @@
+name: Build Windows Forms App
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build and Publish project
+      run: |
+        dotnet publish SpriteSheetGluer/SpriteSheetGluer.csproj -c Release -r win-x64 --self-contained true -o ./publish
+
+    - name: Get App Version
+      id: get_version
+      shell: pwsh
+      run: |
+        [xml]$csproj = Get-Content "SpriteSheetGluer/SpriteSheetGluer.csproj"
+        $version = $csproj.Project.PropertyGroup.Version
+        if (-not $version) { $version = "1.0.0" }
+        echo "VERSION=$version" >> $env:GITHUB_ENV
+        echo "App version detected: $version"
+
+    - name: Rename and Prepare Archive
+      shell: pwsh
+      run: |
+        $appName = "SpriteSheetGluer-v${{ env.VERSION }}"
+        New-Item -ItemType Directory -Path "./artifacts/$appName"
+        Copy-Item -Path "./publish/*" -Destination "./artifacts/$appName" -Recurse
+
+    - name: Upload built EXE artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: SpriteSheetGluer-v${{ env.VERSION }}-win-x64
+        path: ./artifacts/
