@@ -1,10 +1,7 @@
 name: Build Windows Forms App
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -22,19 +19,32 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
 
-    - name: Build and Publish project
+    - name: Build Self-Contained
       run: |
-        dotnet publish SpriteSheetGluer/SpriteSheetGluer.csproj -c Release -r win-x64 --self-contained true -o ./publish
+        dotnet publish SpriteSheetGluer/SpriteSheetGluer.csproj -c Release -r win-x64 --self-contained true -o ./publish-samowystarczalny
 
-    - name: Prepare Archive
+    - name: Prepare Self-Contained Archive
       shell: pwsh
       run: |
-        $appName = "SpriteSheetGluer-win-x64"
+        $appName = "SpriteSheetGluer-win-x64-samowystarczalny"
         New-Item -ItemType Directory -Path "./artifacts/$appName"
-        Copy-Item -Path "./publish/*" -Destination "./artifacts/$appName" -Recurse
+        Copy-Item -Path "./publish-samowystarczalny/*" -Destination "./artifacts/$appName" -Recurse
+        Compress-Archive -Path "./artifacts/$appName/*" -DestinationPath "./artifacts/$appName.zip"
 
-    - name: Upload built EXE artifact
+    - name: Build Framework-Dependent
+      run: |
+        dotnet publish SpriteSheetGluer/SpriteSheetGluer.csproj -c Release -r win-x64 --self-contained false -o ./publish-bez-bibliotek
+
+    - name: Prepare Framework-Dependent Archive
+      shell: pwsh
+      run: |
+        $appName = "SpriteSheetGluer-win-x64-bez-bibliotek-wymaga-dotnet"
+        New-Item -ItemType Directory -Path "./artifacts/$appName"
+        Copy-Item -Path "./publish-bez-bibliotek/*" -Destination "./artifacts/$appName" -Recurse
+        Compress-Archive -Path "./artifacts/$appName/*" -DestinationPath "./artifacts/$appName.zip"
+
+    - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: SpriteSheetGluer-win-x64
-        path: ./artifacts/SpriteSheetGluer-win-x64/
+        name: Paczki-Aplikacji
+        path: ./artifacts/*.zip
