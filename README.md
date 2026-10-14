@@ -13,7 +13,7 @@ Pliki wsadzane do folderów zalecam by miały same liczby w kolejności w jakiej
 &nbsp;
 
 
-Struktura układania:
+Struktura układania przy przykładowym ustawieniu: Liczba sprite'ów w poziomie = 2; Liczba kolumn = 3:
 | | Wiersz1| Wiersz2 |
 | :--- | :---: | ---: |
 | Kolumna1| Obraz2 | Obraz5 |
