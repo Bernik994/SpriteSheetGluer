@@ -26,25 +26,15 @@ jobs:
       run: |
         dotnet publish SpriteSheetGluer/SpriteSheetGluer.csproj -c Release -r win-x64 --self-contained true -o ./publish
 
-    - name: Get App Version
-      id: get_version
+    - name: Prepare Archive
       shell: pwsh
       run: |
-        [xml]$csproj = Get-Content "SpriteSheetGluer/SpriteSheetGluer.csproj"
-        $version = $csproj.Project.PropertyGroup.Version
-        if (-not $version) { $version = "1.0.0" }
-        echo "VERSION=$version" >> $env:GITHUB_ENV
-        echo "App version detected: $version"
-
-    - name: Rename and Prepare Archive
-      shell: pwsh
-      run: |
-        $appName = "SpriteSheetGluer-v${{ env.VERSION }}"
+        $appName = "SpriteSheetGluer-win-x64"
         New-Item -ItemType Directory -Path "./artifacts/$appName"
         Copy-Item -Path "./publish/*" -Destination "./artifacts/$appName" -Recurse
 
     - name: Upload built EXE artifact
       uses: actions/upload-artifact@v4
       with:
-        name: SpriteSheetGluer-v${{ env.VERSION }}-win-x64
-        path: ./artifacts/
+        name: SpriteSheetGluer-win-x64
+        path: ./artifacts/SpriteSheetGluer-win-x64/
