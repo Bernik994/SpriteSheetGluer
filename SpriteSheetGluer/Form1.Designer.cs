@@ -234,7 +234,7 @@
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "Form1";
-            Text = "SpriteSheetGluer v.0.1";
+            Text = "SpriteSheetGluer v1.0.0";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NumY).EndInit();
