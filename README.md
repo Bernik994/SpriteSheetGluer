@@ -1,5 +1,5 @@
 Prosty i lekko prymitywny program do tworzenia Sprite Sheet'ów (łączenie klatek animacji 2D w jeden uporządkowany obraz PNG)
-Stworzony na potrzeby własne jako narzędzie do tworzenia gier, ale jak ktoś chce to niech używa.
+Stworzony na potrzeby własne jako narzędzie do tworzenia gier, ale jak komuś się przyda to niech śmiało używa (choć są pewnie lepsze alternatywy).
 
 * Pomysł i jak to ma działać - 100% mój
 * Wykonanie interfejsu - 100% moje
