@@ -5,7 +5,8 @@
 * Wykonanie interfejsu - 100% moje
 * Kod - pół mój, pół wygenerowany przez ChataGPT
 
-*Do odpalenia programu potrzebny jest Visual Studio (najlepiej 2026 i nie Code) z obsługą platformy .NET*
+*Do odpalenia kodu samodzielny potrzebny jest Visual Studio (najlepiej 2026 i nie Code) z obsługą platformy .NET*
+<br>*Oprócz tego dostępne są też gotowe pliki EXE w Releases*
 
 Na screenie niżej jak to wygląda i opis jak działa.
 <br>Pliki wsadzane do folderów zalecam by miały same liczby w kolejności (od najmniejszej do największej) w jakiej chcecie by były umieszczone (np. 1, 2, 5, 8, 10 itp.).
